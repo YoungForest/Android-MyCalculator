@@ -1,0 +1,268 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0099cc"
+    tools:context="com.example.mycalculator.FullscreenActivity" >
+
+    <!--
+         The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc.
+    -->
+	
+	<!-- 背景标签 -->
+    <TextView
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:keepScreenOn="true"
+        android:text="@string/dummy_content"
+        android:textColor="#33b5e5"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+	
+		
+    <!--
+         This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows.
+    -->
+	
+	<!--
+		 开始构建计算器框架 
+		 采取多重嵌套完成设计
+	 -->
+   <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" >
+        
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+        	android:layout_height="fill_parent">
+        	
+		    <!-- android:stretchColumns="*" 设置所有列可伸展，伸展后使得改行元素站满整行 -->
+	        <TableLayout
+	            android:id="@+id/tl1"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"	            
+	            android:stretchColumns="*"     
+	            >
+	            
+	            <!-- 布置显示文本 -->
+	            <!-- android:editable="false"使得控件不可编辑 -->
+	            <!-- android:hint="@string/dummy_button"初始时显示文本 -->
+	            <EditText
+	  	    		android:id="@+id/tv1"	  	    		
+	  	    		android:editable="false"
+	  	    		android:singleLine="false" 		
+	  	    		android:hint="@string/dummy_button"
+		   			android:layout_width="fill_parent"
+		   			android:gravity="center"
+		    		android:layout_height="100dp"
+		    		android:text="@string/tv_1"
+		    		android:textSize="50sp"
+					android:textAppearance="?android:attr/textAppearanceLarge"  />
+				<!-- 布置所需按钮 -->
+				<!-- android:layout_weight="1" 设置磅值，使得行合理地充满整个界面 -->
+	            <TableRow
+	                android:layout_width="wrap_content"
+	                android:layout_height="fill_parent"
+	                android:layout_weight="1" >
+
+				    <Button
+				        android:id="@+id/bt00"
+				        android:layout_width="wrap_content"
+				        android:layout_height="fill_parent"
+				        android:text="+"
+				        android:textSize="40sp" />
+	
+	                <Button
+	                    android:id="@+id/bt01"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="-"
+	                    android:textSize="40sp" />
+	
+	                <Button
+	                    android:id="@+id/bt02"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="*"
+	                    android:textSize="40sp" />
+	
+	                <Button
+	                    android:id="@+id/bt03"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="/"
+	                    android:textSize="40sp" />
+	
+				</TableRow>	
+	
+	            <TableRow
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="1" >
+	
+	                <Button
+	                    android:id="@+id/bt10"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="7" />
+	
+	                <Button
+	                    android:id="@+id/bt11"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="8" />
+	
+	                <Button
+	                    android:id="@+id/bt12"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="9" />
+	
+	                <Button
+	                    android:id="@+id/bt13"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="Clear" />
+	
+	            </TableRow>
+	
+				<TableRow
+				    android:layout_width="wrap_content"
+				    android:layout_height="fill_parent"
+				    android:layout_weight="1" >
+	
+				    <Button
+				        android:id="@+id/bt20"
+				        android:layout_width="wrap_content"
+				        android:layout_height="fill_parent"
+				        android:text="4" />
+	
+	                <Button
+	                    android:id="@+id/bt21"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="fill_parent"
+	                    android:text="5" />
+	
+	                <Button 
+	                    android:id="@+id/bt22"
+	                    android:text="6" 
+	                    android:layout_height="fill_parent"/>
+	                
+	                <Button 
+	                    android:id="@+id/bt23"
+	                    android:text="Delete"
+	                    android:layout_height="fill_parent"/>
+				</TableRow>
+			
+				<TableRow
+				    android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/tl1"
+					android:layout_weight="2" >
+	               <!--  there -->
+				    <TableLayout
+				        android:layout_width="fill_parent"
+				    	android:layout_height="match_parent"
+				    	android:stretchColumns="*"
+				    	android:layout_span="2">
+						<TableRow
+						    android:layout_height="wrap_content"
+						    android:layout_weight="1">
+			
+						    <Button
+						        android:id="@+id/bt30"
+						        android:layout_height="fill_parent"
+						        android:text="1" />
+						    
+						    <Button
+						        android:id="@+id/bt31"
+						        android:layout_height="fill_parent"
+						        android:text="2" />
+			
+						</TableRow>
+						<TableRow
+						    android:layout_height="wrap_content"
+						    android:layout_weight="1">
+			
+						    <!-- android:layout_span="2"使得按钮占据两列 -->
+						    <Button
+						        android:id="@+id/bt40"
+						        android:layout_height="fill_parent"    
+						        android:layout_span="2"
+						        android:text="0" />
+			
+						</TableRow>
+					</TableLayout>
+					
+					<TableLayout
+					    android:id="@+id/tl2"
+				        android:layout_width="fill_parent"
+				    	android:layout_height="match_parent"
+				    	android:stretchColumns="*">
+						
+						<TableRow
+						    android:layout_height="wrap_content"
+			                android:layout_weight="1">
+						    <Button 
+						        android:id="@+id/bt32"
+						        android:text="3" 
+						        android:layout_height="fill_parent" />
+
+						</TableRow>
+						
+						<TableRow
+						    android:layout_height="wrap_content"
+			                android:layout_weight="1">
+						    <Button 
+						        android:id="@+id/bt41"
+						        android:text="." 
+						        android:layout_height="fill_parent" />
+
+						</TableRow>
+	        		</TableLayout>        		
+					
+	        		<!-- 占据两行的按钮 -->
+		            <Button
+		                android:id="@+id/btend"
+		                android:layout_width="wrap_content"
+		                android:layout_height="fill_parent"
+		                android:layout_toLeftOf="@id/tl2"
+		            	android:text="="/>
+		        
+	        	</TableRow>
+	        	
+	        </TableLayout>
+	        
+        </RelativeLayout>
+        
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@color/black_overlay"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent"
+             >
+			
+             <!-- android:layout_height="0dp" 相当于隐藏该按钮 -->
+            <Button
+                android:id="@+id/dummy_button"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="0sp"            
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/dummy_button" />        
+        </LinearLayout>
+
+    
+    </FrameLayout>
+
+</FrameLayout>
