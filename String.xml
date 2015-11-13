@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyCalculator</string>
+    <string name="dummy_button">Cleared!</string>
+    <string name="dummy_content">Welcome!</string>
+	<string name="tv_1">Designed by Yang Sen!</string>
+	<!-- 哈哈 -->
+</resources>
